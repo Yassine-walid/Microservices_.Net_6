@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.CouponAPI", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Web", "Mango.Web\Mango.Web.csproj", "{0CAB2A91-21F8-4943-A01F-1082CD04DE71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.AuthApi", "Mango.Services.AuthApi\Mango.Services.AuthApi.csproj", "{666A1BCC-913E-4565-A9AF-03F6CE4DCC00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.AuthApi", "Mango.Services.AuthApi\Mango.Services.AuthApi.csproj", "{666A1BCC-913E-4565-A9AF-03F6CE4DCC00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.ProductAPI", "Mango.Services.ProductAPI\Mango.Services.ProductAPI.csproj", "{9D0862DA-9336-42A9-A4D8-36C2647A3E75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{666A1BCC-913E-4565-A9AF-03F6CE4DCC00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666A1BCC-913E-4565-A9AF-03F6CE4DCC00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666A1BCC-913E-4565-A9AF-03F6CE4DCC00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D0862DA-9336-42A9-A4D8-36C2647A3E75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0862DA-9336-42A9-A4D8-36C2647A3E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0862DA-9336-42A9-A4D8-36C2647A3E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0862DA-9336-42A9-A4D8-36C2647A3E75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{E9A6A22F-4604-4319-99CF-060F113797DA} = {61712D01-3815-4139-A602-44EC6181271F}
 		{0CAB2A91-21F8-4943-A01F-1082CD04DE71} = {D69C31B6-88E8-4862-A574-AE07233D7E69}
 		{666A1BCC-913E-4565-A9AF-03F6CE4DCC00} = {61712D01-3815-4139-A602-44EC6181271F}
+		{9D0862DA-9336-42A9-A4D8-36C2647A3E75} = {61712D01-3815-4139-A602-44EC6181271F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C44B125A-A8B8-48B7-9739-C5C52D6759C1}
