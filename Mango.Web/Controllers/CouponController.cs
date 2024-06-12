@@ -6,21 +6,21 @@ using System.Collections.Generic;
 
 namespace Mango.Web.Controllers
 {
-    public class ProductController : Controller
+    public class CouponController : Controller
     {
-        private readonly IProductService _ProductService;
+        private readonly ICouponService _couponService;
 
-        public ProductController(IProductService ProductService)
+        public CouponController(ICouponService couponService)
         {
-            _ProductService = ProductService;
+            _couponService = couponService;
         }
-        public async Task<IActionResult> ProductIndex()
+        public async Task<IActionResult> CouponIndex()
         {
-            List<ProductDto?> list = new();
-            ResponseDto? response = await _ProductService.GetAllProductsAsync();
+            List<CouponDto?> list = new();
+            ResponseDto? response = await _couponService.GetAllCouponAsync();
             if (response != null && response.IsSuccess==true)
             {
-                list = JsonConvert.DeserializeObject<List<ProductDto>>(Convert.ToString(response.Result));
+                list = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(response.Result));
             }
             else
             {
@@ -29,35 +29,35 @@ namespace Mango.Web.Controllers
             return View(list);
         }
 
-        public async Task<IActionResult> ProductCreate()
+        public async Task<IActionResult> CouponCreate()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> ProductCreate(ProductDto ProductDto)
+        public async Task<IActionResult> CouponCreate(CouponDto couponDto)
         {
             if (ModelState.IsValid) 
             {
-                ResponseDto? response = await _ProductService.CreateProductAsync(ProductDto);
+                ResponseDto? response = await _couponService.CreateCouponAsync(couponDto);
                 if (response != null && response.IsSuccess == true)
                 {
-                    TempData["succes"] = "Product Created Succesfuly";
-                    return RedirectToAction(nameof(ProductIndex));
+                    TempData["succes"] = "Coupon Created Succesfuly";
+                    return RedirectToAction(nameof(CouponIndex));
                 }
                 else
                 {
                     TempData["error"] = response?.Message;
                 }
             }
-            return View(ProductDto);
+            return View(couponDto);
         }
 
-        public async Task<IActionResult> ProductDelete(int ProductId)
+        public async Task<IActionResult> CouponDelete(int couponId)
         {
-            ResponseDto? response = await _ProductService.GetProductByIdAsync(ProductId);
+            ResponseDto? response = await _couponService.GetCouponByIdAsync(couponId);
             if (response != null && response.IsSuccess == true)
             {
-                ProductDto? model = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Result));
+                CouponDto? model = JsonConvert.DeserializeObject<CouponDto>(Convert.ToString(response.Result));
                 return View(model);
             }
             else
@@ -67,19 +67,19 @@ namespace Mango.Web.Controllers
             return NotFound();
         }
         [HttpPost]
-        public async Task<IActionResult> ProductDelete(ProductDto ProductDto)
+        public async Task<IActionResult> CouponDelete(CouponDto couponDto)
         {
-            ResponseDto? response = await _ProductService.DeleteProductByIdAsync(ProductDto.ProductId);
+            ResponseDto? response = await _couponService.DeleteCouponByIdAsync(couponDto.CouponId);
             if (response != null && response.IsSuccess == true)
             {
-                TempData["succes"] = "Product Deleted Succesfuly";
-                return RedirectToAction(nameof(ProductIndex));
+                TempData["succes"] = "Coupon Deleted Succesfuly";
+                return RedirectToAction(nameof(CouponIndex));
             }
             else
             {
                 TempData["error"] = response?.Message;
             }
-            return View(ProductDto);
+            return View(couponDto);
         }
     }
 }
